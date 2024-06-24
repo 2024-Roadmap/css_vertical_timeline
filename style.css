@@ -1,3 +1,9 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 :root {
   --subdued-color: #999;
   --text-color: #555;
@@ -8,9 +14,16 @@ body {
   color: var(--text-color);
 }
 
+.avatar {
+  width: 100%;
+  border-radius: 50%;
+  border: 2px solid white;
+}
+
 .notification-grid {
   display: grid;
   grid-template-columns: 50px 1fr;
+  gap: 1rem;
 }
 
 .notification-card {
