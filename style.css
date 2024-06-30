@@ -7,6 +7,8 @@
 :root {
   --subdued-color: #999;
   --text-color: #555;
+  --avatar-size: 50px;
+  --grid-gap: 1rem;
 }
 
 body {
@@ -14,16 +16,37 @@ body {
   color: var(--text-color);
 }
 
-.avatar {
+.avatar > img {
   width: 100%;
   border-radius: 50%;
   border: 2px solid white;
+  display: block;
 }
 
 .notification-grid {
   display: grid;
-  grid-template-columns: 50px 1fr;
-  gap: 1rem;
+  grid-template-columns: var(--avatar-size) 1fr;
+  gap: var(--grid-gap);
+}
+
+.avatar {
+  position: relative;
+}
+
+.avatar::after {
+  content: "";
+  position: absolute;
+  background-color: var(--subdued-color);
+  width: 2px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  top: var(--avatar-size);
+  bottom: calc(var(--grid-gap) * -1);
+}
+
+.avatar:nth-last-child(2):after {
+  display: none;
 }
 
 .notification-card {
